@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import io
+import openpyxl
 
 # Carregar dados do arquivo Excel
 df = pd.read_excel('Liga Kasparov.xlsx', engine='openpyxl')

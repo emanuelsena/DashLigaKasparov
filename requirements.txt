@@ -4,5 +4,3 @@ openpyxl
 streamlit_drawable_canvas
 chess
 pgnparser
-chess.pgn
-chess.svg

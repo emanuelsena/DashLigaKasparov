@@ -122,7 +122,7 @@ if selected_pgn and not (pd.isna(selected_pgn) or selected_pgn == ""):
     pgn_df.index = range(len(pgn_df))
 
     # Botão para mostrar/ocultar o DataFrame do PGN
-    if st.button("Mostrar/Ocultar PGN"):
+    if st.button("Mostrar/Ocultar DataFrame do PGN"):
         st.session_state.show_pgn_df = not st.session_state.show_pgn_df
 
     # Exibir o DataFrame do PGN se o botão estiver ativado
@@ -137,7 +137,7 @@ if selected_pgn and not (pd.isna(selected_pgn) or selected_pgn == ""):
         # Aplicar os movimentos até o índice selecionado
         board = chess.Board()  # Reiniciar o tabuleiro
         for i in range(move_index):
-            move = pgn_df.loc[i + 1, 'Lance']
+            move = pgn_df.loc[i, 'Lance']
             if move:
                 board.push_san(move)
 
@@ -160,7 +160,7 @@ if selected_pgn and not (pd.isna(selected_pgn) or selected_pgn == ""):
                 st.session_state.move_index -= 1
     with col2:
         if st.button("Próximo ➡️"):
-            if st.session_state.move_index < len(pgn_df) - 1:
+            if st.session_state.move_index < len(pgn_df) :  # Check for upper bound
                 st.session_state.move_index += 1
 
     # Exibir o tabuleiro com base no lance selecionado

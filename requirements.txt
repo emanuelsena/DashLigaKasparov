@@ -7,4 +7,4 @@ pgnparser
 io
 chess.pgn
 chess
-chess.svg
+
